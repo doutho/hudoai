@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -11,10 +11,21 @@ import { type LanguageOption, languageOptions } from "./components/LanguageSelec
 const queryClient = new QueryClient();
 
 const App = () => {
-  const [currentLanguage, setCurrentLanguage] = useState<LanguageOption>(languageOptions[0]);
+  const [currentLanguage, setCurrentLanguage] = useState<LanguageOption>(() => {
+    const savedLanguage = localStorage.getItem('selectedLanguage');
+    if (savedLanguage) {
+      const parsed = JSON.parse(savedLanguage);
+      const foundLanguage = languageOptions.find(
+        option => option.code === parsed.code
+      );
+      return foundLanguage || languageOptions[0];
+    }
+    return languageOptions[0];
+  });
 
   const handleLanguageChange = (option: LanguageOption) => {
     setCurrentLanguage(option);
+    localStorage.setItem('selectedLanguage', JSON.stringify(option));
   };
 
   return (

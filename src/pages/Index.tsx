@@ -17,21 +17,23 @@ const Index = () => {
   const [analysisResult, setAnalysisResult] = useState<any>(null);
   const [showDialog, setShowDialog] = useState(false);
   const [showWelcomeDialog, setShowWelcomeDialog] = useState(false);
-  const [currentLanguage, setCurrentLanguage] = useState<LanguageOption>(languageOptions[0]);
+  const [currentLanguage, setCurrentLanguage] = useState<LanguageOption>(() => {
+    const savedLanguage = localStorage.getItem('selectedLanguage');
+    if (savedLanguage) {
+      const parsed = JSON.parse(savedLanguage);
+      const foundLanguage = languageOptions.find(
+        option => option.code === parsed.code
+      );
+      return foundLanguage || languageOptions[0];
+    }
+    return languageOptions[0];
+  });
   const { toast } = useToast();
 
   useEffect(() => {
     const hasSelectedLanguage = localStorage.getItem('selectedLanguage');
     if (!hasSelectedLanguage) {
       setShowWelcomeDialog(true);
-    } else {
-      const savedLanguage = JSON.parse(hasSelectedLanguage);
-      const foundLanguage = languageOptions.find(
-        option => option.code === savedLanguage.code
-      );
-      if (foundLanguage) {
-        setCurrentLanguage(foundLanguage);
-      }
     }
   }, []);
 
@@ -72,15 +74,17 @@ const Index = () => {
           onLanguageChange={handleLanguageSelect}
         />
 
-        <section aria-label="Skin Analysis Upload" className="mb-8">
-          <AnalysisSection
-            images={images}
-            onImageUpload={handleImageUpload}
-            isAnalyzing={isAnalyzing}
-            handleAnalyze={handleAnalyze}
-            currentLanguage={currentLanguage}
-          />
-        </section>
+        {!analysisResult && (
+          <section aria-label="Skin Analysis Upload" className="mb-8">
+            <AnalysisSection
+              images={images}
+              onImageUpload={handleImageUpload}
+              isAnalyzing={isAnalyzing}
+              handleAnalyze={handleAnalyze}
+              currentLanguage={currentLanguage}
+            />
+          </section>
+        )}
 
         <AnalysisDialog
           showDialog={showDialog}
