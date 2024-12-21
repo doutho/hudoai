@@ -5,7 +5,7 @@ export const productDatabase = {
       name: "CeraVe Fuktgivande Lotion",
       description: "En lätt och snabbabsorberande fuktighetskräm för normal till torr hud. Innehåller ceramider och hyaluronsyra för optimal fuktbalans.",
       link: "https://amzn.to/4gjuUhU",
-      image: "",
+      image: "/lovable-uploads/9ba89514-66be-4fc0-ac2e-405dea2b5282.png",
       price: "",
       conditions: ["torr", "normal"]
     },
@@ -14,7 +14,7 @@ export const productDatabase = {
       name: "La Roche-Posay Effaclar Mat",
       description: "Mattifierande fuktighetskräm speciellt utvecklad för fet och kombinerad hud. Hjälper till att kontrollera överskott av talg.",
       link: "https://amzn.to/49GC11g",
-      image: "",
+      image: "/lovable-uploads/9ba89514-66be-4fc0-ac2e-405dea2b5282.png",
       price: "",
       conditions: ["oljig", "kombinerad"]
     }
@@ -25,7 +25,7 @@ export const productDatabase = {
       name: "CeraVe Hydrerande Ansiktsrengöring",
       description: "Mild och skonsam rengöring som bevarar hudens naturliga skyddsbarriär. Perfekt för alla hudtyper.",
       link: "https://amzn.to/3ZFWcYG",
-      image: "",
+      image: "/lovable-uploads/97cbe5bb-0cdb-49c4-a50f-3e8762130c8d.png",
       price: "",
       conditions: ["torr", "normal", "känslig"]
     },
@@ -34,7 +34,7 @@ export const productDatabase = {
       name: "Cetaphil Gentle Skin Cleanser",
       description: "Extra mild rengöring som passar även den känsligaste huden. Parfymfri och dermatologiskt testad.",
       link: "https://amzn.to/3P0SL9W",
-      image: "",
+      image: "/lovable-uploads/97cbe5bb-0cdb-49c4-a50f-3e8762130c8d.png",
       price: "",
       conditions: ["känslig", "torr"]
     }
@@ -45,7 +45,7 @@ export const productDatabase = {
       name: "Paula's Choice 2% BHA",
       description: "Mild kemisk exfoliering med salicylsyra som rensar porerna på djupet. Passar alla hudtyper.",
       link: "https://amzn.to/3Dv7cjX",
-      image: "",
+      image: "/lovable-uploads/41aa444c-d9aa-4669-ac19-6d305f790ada.png",
       price: "",
       conditions: ["alla", "oljig", "kombinerad", "normal"]
     }
@@ -56,7 +56,7 @@ export const productDatabase = {
       name: "La Roche-Posay Anthelios",
       description: "Högeffektivt solskydd med SPF50+ som passar alla hudtyper. Lätt formula som inte känns klibbig.",
       link: "https://amzn.to/4iEWyaE",
-      image: "",
+      image: "/lovable-uploads/fcf9f462-dc9f-4e50-aa53-997e40706d1e.png",
       price: "",
       conditions: ["alla"]
     },
@@ -65,7 +65,7 @@ export const productDatabase = {
       name: "EVY Technology Solskydd",
       description: "Innovativt svenskt solskydd som tränger in i hudens övre lager för långvarigt skydd.",
       link: "https://amzn.to/3VJiIyI",
-      image: "",
+      image: "/lovable-uploads/fcf9f462-dc9f-4e50-aa53-997e40706d1e.png",
       price: "",
       conditions: ["oljig", "kombinerad"]
     }
@@ -76,7 +76,7 @@ export const productDatabase = {
       name: "The Ordinary Retinol 1%",
       description: "Effektiv retinolbehandling för erfarna användare. Hjälper till att förbättra hudens struktur och ton.",
       link: "https://amzn.to/3P3dDxo",
-      image: "",
+      image: "/lovable-uploads/cb85aea1-30fa-4d32-be1a-359a57838f75.png",
       price: "",
       conditions: ["alla", "åldrande"]
     }
