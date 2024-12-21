@@ -18,7 +18,7 @@ export async function analyzeSkinImage(base64Image: string, language: Language =
       ? base64Image.split('base64,')[1] 
       : base64Image;
     
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-thinking-exp" });
     
     const result = await model.generateContent([
       geminiPrompts[language],
@@ -37,7 +37,6 @@ export async function analyzeSkinImage(base64Image: string, language: Language =
 
   } catch (error) {
     console.error('Error in Gemini analysis:', error);
-    // Return default values in case of API failure
     return "Normal;White;30;None;CeraVe Moisturizing Lotion;Perfect for your normal skin type, apply a small amount morning and night after cleansing;CeraVe Hydrating Facial Cleanser;Gentle cleanser suitable for daily use, massage onto damp skin morning and evening;Paula's Choice 2% BHA;Use 2-3 times per week in the evening after cleansing;La Roche-Posay Anthelios;Apply generously 15 minutes before sun exposure, reapply every 2 hours;The Ordinary Retinol 1%;Start using twice a week in the evening, gradually increase frequency as tolerated";
   }
 }
