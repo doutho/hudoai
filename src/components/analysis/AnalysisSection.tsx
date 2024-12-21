@@ -10,7 +10,6 @@ interface AnalysisSectionProps {
   isAnalyzing: boolean;
   handleAnalyze: () => void;
   currentLanguage: LanguageOption;
-  analysisComplete?: boolean;
 }
 
 const AnalysisSection: React.FC<AnalysisSectionProps> = ({
@@ -18,19 +17,14 @@ const AnalysisSection: React.FC<AnalysisSectionProps> = ({
   onImageUpload,
   isAnalyzing,
   handleAnalyze,
-  currentLanguage,
-  analysisComplete
+  currentLanguage
 }) => {
   const t = translations[currentLanguage.code];
-
-  if (analysisComplete) {
-    return null;
-  }
 
   return (
     <>
       <div className="text-center space-y-4 mb-8 animate-fade-in">
-        <h1 className="text-xl text-white font-clash font-bold">
+        <h1 className="text-xl text-white font-roboto font-bold">
           {t.uploadText}
         </h1>
       </div>
@@ -46,7 +40,7 @@ const AnalysisSection: React.FC<AnalysisSectionProps> = ({
         <Button
           onClick={handleAnalyze}
           disabled={isAnalyzing || images.length === 0}
-          className="px-8 bg-primary hover:bg-primary/90 text-white hover-scale font-clash"
+          className="px-8 bg-primary hover:bg-primary/90 text-white hover-scale font-roboto"
           aria-busy={isAnalyzing}
         >
           {isAnalyzing ? t.analyzing : t.analyzeButton}

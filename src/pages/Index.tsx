@@ -11,28 +11,32 @@ import AnalysisHandler from '@/components/analysis/AnalysisHandler';
 import { useToast } from '@/hooks/use-toast';
 import { translations } from '@/utils/translations';
 
-interface IndexProps {
-  currentLanguage: LanguageOption;
-  onLanguageChange: (option: LanguageOption) => void;
-}
-
-const Index = ({ currentLanguage, onLanguageChange }: IndexProps) => {
+const Index = () => {
   const [images, setImages] = useState<string[]>([]);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [analysisResult, setAnalysisResult] = useState<any>(null);
   const [showDialog, setShowDialog] = useState(false);
   const [showWelcomeDialog, setShowWelcomeDialog] = useState(false);
+  const [currentLanguage, setCurrentLanguage] = useState<LanguageOption>(languageOptions[0]);
   const { toast } = useToast();
 
   useEffect(() => {
     const hasSelectedLanguage = localStorage.getItem('selectedLanguage');
     if (!hasSelectedLanguage) {
       setShowWelcomeDialog(true);
+    } else {
+      const savedLanguage = JSON.parse(hasSelectedLanguage);
+      const foundLanguage = languageOptions.find(
+        option => option.code === savedLanguage.code
+      );
+      if (foundLanguage) {
+        setCurrentLanguage(foundLanguage);
+      }
     }
   }, []);
 
   const handleLanguageSelect = (option: LanguageOption) => {
-    onLanguageChange(option);
+    setCurrentLanguage(option);
     localStorage.setItem('selectedLanguage', JSON.stringify(option));
     const t = translations[option.code];
     toast({
@@ -75,7 +79,6 @@ const Index = ({ currentLanguage, onLanguageChange }: IndexProps) => {
             isAnalyzing={isAnalyzing}
             handleAnalyze={handleAnalyze}
             currentLanguage={currentLanguage}
-            analysisComplete={!!analysisResult}
           />
         </section>
 
