@@ -49,13 +49,13 @@ const ProductCard: React.FC<ProductCardProps> = ({
                 <h4 className="text-xl font-semibold text-primary line-clamp-2">{product.title}</h4>
                 {product.personalizedDescription ? (
                   <div className="space-y-4">
-                    <p className="text-gray-700 p-4 bg-gray-50 rounded-lg border border-gray-100 leading-relaxed">
+                    <p className="text-gray-700 p-4 bg-gray-50 rounded-lg border border-gray-100">
                       {product.personalizedDescription}
                     </p>
-                    <p className="text-gray-600 text-sm leading-relaxed">{product.description}</p>
+                    <p className="text-gray-600 text-sm">{product.description}</p>
                   </div>
                 ) : (
-                  <p className="text-gray-700 leading-relaxed">{product.description}</p>
+                  <p className="text-gray-700 line-clamp-3">{product.description}</p>
                 )}
                 {product.price && (
                   <p className="text-xl font-semibold text-primary">{product.price}</p>
