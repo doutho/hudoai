@@ -19,7 +19,8 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				sans: ['var(--font-clash-display)', 'sans-serif'],
+				sans: ['var(--font-roboto)', 'sans-serif'],
+				roboto: ['var(--font-roboto)', 'sans-serif'],
 				clash: ['var(--font-clash-display)', 'sans-serif'],
 			},
 			colors: {
